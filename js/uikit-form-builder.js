@@ -24,28 +24,36 @@
 			component.name = compName;
 			return component;
 		},
-		getAttrsHTML : function(comp,data){
+		renderAttrForm : function(comp,data){
 			if(data == undefined){
 				data = comp.attrs.defaultVal;
 			}
+			var el = null;
 			if(comp.attrs.render != undefined){
-				return comp.attrs.render(data);
+				el = comp.attrs.render(data);
 			}else{
 				var template = Handlebars.compile(comp.attrs.template);
-				return template(data);
+				var html = template(data);
+				el = $(html);
 			}
+			return el;
 		},
-		
-		getCompHTML : function(comp,data){
+		renderComponent : function(comp,data){
 			if(data == undefined){
 				data = comp.attrs.defaultVal;
 			}
+			var el = null;
 			if(comp.render != undefined){
-				return comp.render(data);
+				el = comp.render(data);
 			}else{
 				var template = Handlebars.compile(comp.template);
-				return template(data);
+				var html = template(data);
+				el = $(html);
 			}
+			if(comp.init != undefined){
+				comp.init(el);
+			}
+			return el;
 		},
 		init : function(){
 			builder.initComponentNav();
@@ -93,21 +101,20 @@
 			.on("drop",function(el, target, source, sibling){
 				$(el).remove();
 				var comp = builder.getComponent($(el));
-				var html = builder.getCompHTML(comp);
-				var node = $(html);
-				node.data("data",comp.attrs.defaultVal);
-				$(target).append(node);
+				var el = builder.renderComponent(comp);
+				el.data("data",comp.attrs.defaultVal);
+				$(target).append(el);
 			})
 		},
 		initRootComponent : function(){
 			var root = builder.components["canvas"];
-			var attrsHTML = builder.getAttrsHTML(root);
-			var canvas = builder.getCompHTML(root);
-			var html = $(canvas).addClass("ukfb-component-selected");
+			var el = builder.renderAttrForm(root);
+			var canvas = builder.renderComponent(root);
+			canvas.addClass("ukfb-component-selected");
 			
-			$(".ukfb-canvas").append(html);
+			$(".ukfb-canvas").append(canvas);
 			$(".ukfb-attr-form").attr("data-component","canvas");
-			$(".ukfb-attr-form").prepend(attrsHTML);
+			$(".ukfb-attr-form").prepend(el);
 			$(".ukfb-attr-nav .uk-nav-header").text(root.text);
 		},
 		initCanvas : function(){
@@ -130,6 +137,9 @@
 				if($(this).attr("data-component") != "canvas"){
 					$(this).append('<a href="javascript:;" class="uk-close"></a>');
 				}
+//				$(this).delegate("input,select,textarea,uk-dropdown","click",function(e){
+//					e.stopPropagation();
+//				})
 				builder.setAttrForm($(this));
 			})
 			.delegate(".uk-close", "click",function(){
@@ -146,22 +156,21 @@
 					json[arr[i].name] = arr[i].value;
 				}
 				var component = builder.getComponent(attrForm);
-				var html = builder.getCompHTML(component, json);
+				var el = builder.renderComponent(component, json);
 				var selected = $(".ukfb-canvas .ukfb-component-selected");
-				selected.html($(html).html());
+				selected.html(el.html());
 				selected.append('<a href="javascript:;" class="uk-close"></a>');
 				selected.data("data",json);
 			});
 		},
 		setAttrForm : function(el){
-			var selected = $(".ukfb-canvas .ukfb-component-selected");
 			var component = builder.getComponent(el);
-			var attrsHTML = builder.getAttrsHTML(component, selected.data("data"));
+			var attrEl = builder.renderAttrForm(component, el.data("data"));
 			var compName = el.attr("data-component");
 			
 			$(".ukfb-attr-form > *:not(.ukfb-component-apply)").remove();
 			$(".ukfb-attr-form").attr("data-component",compName)
-			$(".ukfb-attr-form").prepend(attrsHTML);
+			$(".ukfb-attr-form").prepend(attrEl);
 			$(".ukfb-attr-nav .uk-nav-header").text(component.text);
 			
 		}
@@ -212,7 +221,8 @@
 					});
 				}
 				data.columns = columns;
-				return template(data);
+				var html = template(data);
+				return $(html);
 			}
 		}
 		

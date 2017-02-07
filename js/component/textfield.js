@@ -43,7 +43,8 @@ UKBuilder.components.textfield = function(){
 			+ '</div>'
 			+ '</div>',
 			
-		//render : function(data){}
+		//render : function(data){},
+		//init : function(){}
 	}
 	
 	return comp;

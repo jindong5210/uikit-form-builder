@@ -1,8 +1,8 @@
-UKBuilder.components.select = function(){
+UKBuilder.components.timepicker = function(){
 	
 	var comp = {
 		
-		text : '下拉框',
+		text : '时间选择',
 			
 		attrs : {
 			
@@ -10,7 +10,7 @@ UKBuilder.components.select = function(){
 				'class' :'',
 				'label' : 'Label:',
 				'size' : 'uk-form-width-medium',
-				'name' : 'select1',
+				'name' : 'timepicker1',
 			},
 			template : '<div class="uk-form-row"><label class="uk-form-label">ID</label>'
 				+ '<div class="uk-form-controls"><input type="text" name="ID" value="{{ID}}"></div></div>'
@@ -33,11 +33,16 @@ UKBuilder.components.select = function(){
 		template : '<div class="uk-form-row" data-component="textfield">'
 			+ '<label class="uk-form-label" for="{{ID}}">{{label}}</label>'
 			+ '<div class="uk-form-controls">'
-			+ '	<input type="{{type}}" id="{{ID}}" placeholder="{{placeholder}}" name="{{name}}" class="{{size}} {{class}}">'
+			+ '<input type="text" id="{{ID}}" name="{{name}}" class="{{size}} {{class}}" data-uk-timepicker="{format:\'24h\'}">'
 			+ '</div>'
 			+ '</div>',
 			
-		//render : function(data){}
+		//render : function(data){},
+		init : function(el){
+//			var timepicker = UIkit.datepicker(el, {
+//				format:'24h'
+//			});
+		}
 	}
 	
 	return comp;

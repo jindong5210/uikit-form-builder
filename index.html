@@ -2,8 +2,11 @@
 <html>
 <head>
 <title>UIKIT Form Builder</title>
-<link rel="stylesheet" href="plugins/uikit/css/uikit.min.css" />
-<link rel="stylesheet" href="plugins/dragula/dragula.min.css" />
+<link rel="stylesheet" href="http://cdn.bootcss.com/uikit/2.26.4/css/uikit.min.css" />
+<link rel="stylesheet" href="http://cdn.bootcss.com/uikit/2.26.4/css/components/datepicker.min.css" />
+<link rel="stylesheet" href="http://cdn.bootcss.com/uikit/2.26.4/css/components/autocomplete.min.css">
+
+<link rel="stylesheet" href="http://cdn.bootcss.com/dragula/3.7.2/dragula.min.css" />
 <link rel="stylesheet" href="css/uikit-form-builder.css"/>
 <link rel="stylesheet" href="css/main.css" />
 <meta charset="utf-8">
@@ -33,13 +36,13 @@
 					<li data-component="textfield">
 						<a href="#">文本框</a>
 					</li>
-					<li data-component="select">
+					<li>
 						<a href="#">下拉列表</a>
 					</li>
 					<li><a href="#">单选</a></li>
 					<li><a href="#">多选</a></li>
-					<li><a href="#">日期选择器</a></li>
-					<li><a href="#">时间选择器</a></li>
+					<li data-component="datepicker"><a href="#">日期选择器</a></li>
+					<li data-component="timepicker"><a href="#">时间选择器</a></li>
 				</ul>
 			</div>
 		</div>
@@ -81,13 +84,19 @@
 		</div>
 	</div>
 
-	<script src="plugins/jquery/jquery-1.12.3.min.js"></script>
-	<script src="plugins/handlebars/handlebars.min.js"></script>
+	<script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/handlebars.js/4.0.6/handlebars.min.js"></script>
 	<script src="plugins/handlebars/handlebars.helpers.js"></script>
-	<script src="plugins/uikit/js/uikit.min.js"></script>
-	<script src="plugins/dragula/dragula.min.js"></script>
+	<script src="http://cdn.bootcss.com/uikit/2.26.4/js/uikit.min.js"></script>
+	<script src="http://cdn.bootcss.com/uikit/2.26.4/js/components/datepicker.min.js"></script>
+	<script src="http://cdn.bootcss.com/uikit/2.26.4/js/components/timepicker.min.js"></script>
+	<script src="http://cdn.bootcss.com/uikit/2.26.4/js/components/autocomplete.min.js"></script>
+	<script src="http://cdn.bootcss.com/dragula/3.7.2/dragula.min.js"></script>
+	
 	<script type="text/javascript" src="js/uikit-form-builder.js"></script>
 	<script type="text/javascript" src="js/component/textfield.js"></script>
 	<script type="text/javascript" src="js/component/select.js"></script>
+	<script type="text/javascript" src="js/component/datepicker.js"></script>
+	<script type="text/javascript" src="js/component/timepicker.js"></script>
 </body>
 </html>

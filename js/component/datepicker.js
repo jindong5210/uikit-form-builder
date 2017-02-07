@@ -1,8 +1,8 @@
-UKBuilder.components.select = function(){
+UKBuilder.components.datepicker = function(){
 	
 	var comp = {
 		
-		text : '下拉框',
+		text : '日期选择',
 			
 		attrs : {
 			
@@ -10,7 +10,7 @@ UKBuilder.components.select = function(){
 				'class' :'',
 				'label' : 'Label:',
 				'size' : 'uk-form-width-medium',
-				'name' : 'select1',
+				'name' : 'datepicker1',
 			},
 			template : '<div class="uk-form-row"><label class="uk-form-label">ID</label>'
 				+ '<div class="uk-form-controls"><input type="text" name="ID" value="{{ID}}"></div></div>'
@@ -30,14 +30,19 @@ UKBuilder.components.select = function(){
 			//render : function(data){}
 		},
 		
-		template : '<div class="uk-form-row" data-component="textfield">'
+		template : '<div class="uk-form-row" data-component="datepicker">'
 			+ '<label class="uk-form-label" for="{{ID}}">{{label}}</label>'
 			+ '<div class="uk-form-controls">'
-			+ '	<input type="{{type}}" id="{{ID}}" placeholder="{{placeholder}}" name="{{name}}" class="{{size}} {{class}}">'
+			+ '<input type="text" id="{{ID}}" name="{{name}}" class="{{size}} {{class}}" data-uk-datepicker="{format:\'YYYY/MM/DD\',i18n:{weekdays:[\'日\',\'一\',\'二\',\'三\',\'四\',\'五\',\'六\']}}">'
 			+ '</div>'
 			+ '</div>',
 			
-		//render : function(data){}
+		//render : function(data){},
+		init : function(el){
+//			var timepicker = UIkit.datepicker(el, {
+//				format:'YYYY/MM/DD'
+//			});
+		}
 	}
 	
 	return comp;
