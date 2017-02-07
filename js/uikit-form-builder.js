@@ -56,19 +56,12 @@
 			return el;
 		},
 		init : function(){
-			builder.initComponentNav();
 			builder.initCanvas();
 			builder.initDragAndDrop();
 			builder.initRootComponent();
 			builder.initAttrForm();
 		},
 		
-		initComponentNav : function(){
-			$(".ukfb-component-nav > li").on("mousedown",function(){
-				$(".ukfb-component-nav > li").removeClass("uk-active");
-				$(this).addClass("uk-active");
-			});
-		},
 		initDragAndDrop : function(){
 			
 			var drag = dragula([],{
@@ -137,9 +130,6 @@
 				if($(this).attr("data-component") != "canvas"){
 					$(this).append('<a href="javascript:;" class="uk-close"></a>');
 				}
-//				$(this).delegate("input,select,textarea,uk-dropdown","click",function(e){
-//					e.stopPropagation();
-//				})
 				builder.setAttrForm($(this));
 			})
 			.delegate(".uk-close", "click",function(){
