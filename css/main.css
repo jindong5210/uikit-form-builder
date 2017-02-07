@@ -1,0 +1,56 @@
+html{
+	height: 100%;
+}
+body {
+	min-width: 1280px;
+	-webkit-font-smoothing: antialiased;
+	height: 100%;
+}
+
+.ukfb-navbar {
+	background-color: #28a5f5;
+	height: 70px;
+	color: #fff;
+}
+.ukfb-navbar .uk-navbar-brand{
+	height: 70px;
+	color : #fff;
+}
+.ukfb-navbar .uk-navbar-nav>li>a {
+	height: 70px;
+	line-height: 70px;
+	color : #fff;
+	min-width: 70px;
+	text-align: center;
+	cursor: pointer;
+}
+.ukfb-navbar .uk-navbar-nav>li.uk-active>a {
+	background: none;
+}
+
+.ukfb-navbar .uk-navbar-nav>li:hover>a, 
+.ukfb-navbar .uk-navbar-nav>li>a:focus{
+	background: none;
+}
+.ukfb-navbar .uk-navbar-nav>li:hover>a:before{
+	content: '';
+	display: block;
+	position: absolute;
+	left: 10px;
+	right: calc(102% - 15px);
+	bottom: 20px;
+	height: 1px;
+	background-color: currentColor;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	-webkit-transition-property: right;
+	transition-property: right;
+	width: calc(100% - 20px);
+}
+
+.ukfb-main-grid{
+	background-color: #fbfbfb;
+	height: calc(100% - 70px);
+}
+
+

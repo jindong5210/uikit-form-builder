@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UIKIT Form Builder</title>
+<link rel="stylesheet" href="plugins/uikit/css/uikit.min.css" />
+<link rel="stylesheet" href="plugins/dragula/dragula.min.css" />
+<link rel="stylesheet" href="css/uikit-form-builder.css"/>
+<link rel="stylesheet" href="css/main.css" />
+<meta charset="utf-8">
+</head>
+<body>
+	<nav class="uk-navbar ukfb-navbar">
+		<a href="#" class="uk-navbar-brand">UIKIT Form Builder</a>
+		<ul class="uk-navbar-nav">
+			<li class="uk-active"><a href="#">首页</a></li>
+			<li><a href="#">文档</a></li>
+			<li><a href="#">下载</a></li>
+			<li><a href="#">关于</a></li>
+		</ul>
+	</nav>
+	<div class="uk-grid uk-grid-collapse ukfb-main-grid">
+		<div class="uk-width-2-10">
+			<div class="uk-panel uk-panel-box ukfb-left-panel">
+				<h3 class="uk-panel-title">表单组件</h3>
+				<ul class="uk-nav uk-nav-side uk-nav-parent-icon ukfb-component-nav">
+					<!-- <li class="uk-nav-header">布局</li>
+					<li class="uk-nav-divider"></li>
+					<li data-component="grid">
+						<a href="#">网格</a>
+					</li> -->
+					<li class="uk-nav-header">组件</li>
+					<li class="uk-nav-divider"></li>
+					<li data-component="textfield">
+						<a href="#">文本框</a>
+					</li>
+					<li data-component="select">
+						<a href="#">下拉列表</a>
+					</li>
+					<li><a href="#">单选</a></li>
+					<li><a href="#">多选</a></li>
+					<li><a href="#">日期选择器</a></li>
+					<li><a href="#">时间选择器</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="uk-width-6-10">
+			<div class="uk-panel uk-panel-box ukfb-editor">
+				<span class="ukfb-drag-here">拖动元素到这里</span>
+				<ul class="uk-subnav uk-subnav-pill ukfb-editor-nav">
+					<li class="uk-active"><a href="#">计设</a></li>
+					<li><a href="#">代码</a></li>
+				</ul>
+				<form class="uk-form uk-form-stacked ukfb-editor-form">
+					<fieldset>
+						<legend>Form表单</legend>
+						<div class="ukfb-canvas">
+							<!-- <div data-component="canvas">
+								<div class="uk-grid">
+									<div class="uk-width-1-2"><div class="uk-panel uk-panel-box"></div></div>
+									<div class="uk-width-1-2"><div class="uk-panel uk-panel-box"></div></div>
+								</div>
+							</div> -->
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<div class="uk-width-2-10">
+			<div class="uk-panel uk-panel-box ukfb-right-panel">
+				<h3 class="uk-panel-title">组件属性</h3>
+				<ul class="uk-nav uk-nav-side uk-nav-parent-icon ukfb-attr-nav">
+					<li class="uk-nav-header"></li>
+					<li class="uk-nav-divider"></li>
+				</ul>
+				<form class="uk-form uk-form-stacked ukfb-attr-form">
+					<div class="uk-margin-top ukfb-component-apply">
+						<button type="button" class="uk-button uk-button-primary">应用</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="plugins/jquery/jquery-1.12.3.min.js"></script>
+	<script src="plugins/handlebars/handlebars.min.js"></script>
+	<script src="plugins/handlebars/handlebars.helpers.js"></script>
+	<script src="plugins/uikit/js/uikit.min.js"></script>
+	<script src="plugins/dragula/dragula.min.js"></script>
+	<script type="text/javascript" src="js/uikit-form-builder.js"></script>
+	<script type="text/javascript" src="js/component/textfield.js"></script>
+	<script type="text/javascript" src="js/component/select.js"></script>
+</body>
+</html>
